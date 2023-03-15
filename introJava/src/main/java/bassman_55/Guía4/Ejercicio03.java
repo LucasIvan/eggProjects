@@ -30,18 +30,18 @@ public class Ejercicio03 {
     public static void cambio(double euros, String moneda){
         
         switch (moneda){
-            case "A":
+            case "A" -> {
                 double dolar = euros * 1.28611;
-                System.out.println(euros + " equivalen a $ " + dolar + " Dólares.");
-                break;
-            case "B":
+                System.out.println(euros + " euros equivalen a $ " + dolar + " Dólares.");
+            }
+            case "B" -> {
                 double yen = euros * 129.852;
-                System.out.println(euros + " equivalen a Y " + yen + " Yenes.");
-                break;
-            case "C":
+                System.out.println(euros + " euros equivalen a Y " + yen + " Yenes.");
+            }
+            case "C" -> {
                 double libra = euros * 0.86;
-                System.out.println(libra + " equivalen a L " + libra + " Libras");
-                break;
+                System.out.println(libra + " euros equivalen a L " + libra + " Libras");
+            }
         }
     }
     

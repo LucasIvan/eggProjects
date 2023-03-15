@@ -22,24 +22,23 @@ para imprimirlos en el main */
             sel = read.nextInt();
             
             switch (sel){
-            case 1:
+            case 1 -> {
                 int suma = sumar(num1,num2);
                 System.out.println("El resultado de la suma es: "+ suma);
-                break;
-            case 2:
+                }
+            case 2 -> {
                 int resta = restar(num1,num2);
                 System.out.println("El resultado de la resta es: "+ resta);
-                break;
-            case 3:
+                }
+            case 3 -> {
                 double div = dividir(num1,num2);
                 System.out.println("El resultado de la división es: "+ div);
-                break;
-            case 4:
+                }
+            case 4 -> {
                 int mult = multip(num1,num2);
                 System.out.println("El resultado de la multiplicación es: "+ mult);
-                break;
-            case 5:
-                System.out.println("Eligió salir");
+                }
+            case 5 -> System.out.println("Eligió salir");
             }
         } while(sel != 5);
         

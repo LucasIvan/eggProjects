@@ -30,11 +30,6 @@ public class Ejercicio04 {
                 cont++;
             }
         }
-        
-        if (cont==2) {
-            return true;
-        }
-        
-        return false;
+        return cont==2;
     }
 }
