@@ -23,13 +23,13 @@ static Scanner read = new Scanner(System.in);
         int[] vector2 = new int[dimension];
         
         System.out.println("Llene el primer vector");
-        llenarVector(vector, dimension);
+        llenarVector(vector);
         
         System.out.println("Llene el vector a comparar");
-        llenarVector(vector2, dimension);
+        llenarVector(vector2);
 
         
-        if (comparar(vector, vector2, dimension)) {
+        if (comparar(vector, vector2)) {
             System.out.println("Los vectores son iguales");
         }else{
             System.out.println("Los vectores son diferentes");
@@ -37,15 +37,15 @@ static Scanner read = new Scanner(System.in);
         
     }
     
-    public static void llenarVector(int[] vector, int dimension){
-        for (int i = 0; i < dimension; i++) {
+    public static void llenarVector(int[] vector){
+        for (int i = 0; i < vector.length; i++) {
             System.out.print("[" + i + "] >> ");
             vector[i] = read.nextInt();
         }
     }
     
-    public static boolean comparar(int[] vector, int[] vector2, int dimension){
-        for (int i = 0; i < dimension; i++) {
+    public static boolean comparar(int[] vector, int[] vector2){
+        for (int i = 0; i < vector.length; i++) {
             if (vector[i] != vector2[i]) {
                 return false;
             }

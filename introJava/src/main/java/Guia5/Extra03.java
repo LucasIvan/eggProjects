@@ -21,21 +21,21 @@ public class Extra03 {
         
         int[] vector = new int[dimension];
         
-        llenarVec(vector, dimension);
-        imprimirVec(vector, dimension);
+        llenarVec(vector);
+        imprimirVec(vector);
     }
     
-    public static void llenarVec(int[] vector, int dimension){
+    public static void llenarVec(int[] vector){
         
-        for (int i = 0; i < dimension; i++) {
+        for (int i = 0; i < vector.length; i++) {
             vector[i] = (int) (Math.random() * 99) + 1;
         }
         
     }
     
-    public static void imprimirVec(int[] vector, int dimension){
+    public static void imprimirVec(int[] vector){
         
-        for (int i = 0; i < dimension; i++) {
+        for (int i = 0; i < vector.length; i++) {
             System.out.print("[" + vector[i] + "]");
         }
         System.out.println("");
