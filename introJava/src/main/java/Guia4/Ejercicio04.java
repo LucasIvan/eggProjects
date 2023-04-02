@@ -22,7 +22,7 @@ public class Ejercicio04 {
         System.out.println(a);
       
     }
-    public static boolean primo(int num){
+  /*  public static boolean primo(int num){
         int cont = 0;
         
         for (int i = 1; i <= num; i++) {
@@ -31,5 +31,18 @@ public class Ejercicio04 {
             }
         }
         return cont==2;
+    }*/
+    
+    public static boolean primo(int num){
+        if (num<2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num%i==0) {
+                return false;
+            }
+        }
+        return true;
     }
+    
 }

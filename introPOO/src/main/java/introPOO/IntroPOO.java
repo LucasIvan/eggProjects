@@ -1,12 +1,19 @@
 package introPOO;
 
-import introPOO.entidades.Cancion;
 import java.util.Scanner;
+import introPOO.entidades.Cancion;
 import introPOO.entidades.Circunferencia;
+import introPOO.entidades.Cocina;
+import introPOO.entidades.Cuenta;
+import introPOO.entidades.Juego;
 import introPOO.entidades.Libro;
 import introPOO.entidades.Operacion;
+import introPOO.entidades.Producto;
 import introPOO.entidades.Puntos;
+import introPOO.entidades.Receta;
 import introPOO.entidades.Rectangulo;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class IntroPOO {
@@ -61,10 +68,54 @@ public class IntroPOO {
         */
         
         //------------------------- EJ EX 2 ------------------------------------
-        
+        /*
         Puntos dist = new Puntos();
+        
         dist.crearPuntos();
         System.out.println("La distancia entre los puntos es: " + dist.distancia());
+        */
+        //------------------------- EJ EX 0 ------------------------------------
+        /*
+        Producto prod = new Producto();
+        
+        prod.crearProducto();
+        System.out.println("Despues de Crear");
+        prod.mostrarProducto();
+        prod.venderProducto();
+        System.out.println("Despues de Vender");
+        prod.mostrarProducto();
+        prod.cambiarPrecio();
+        System.out.println("Despues de Cambiar Precio");
+        prod.mostrarProducto();
+        */
+        
+        //----------------------- EJ EX 3 --------------------------------------
+        /*
+        Juego game = new Juego();
+        game.iniciarJuego();
+        */
+        
+        //------------------------ EJ EX 4 -------------------------------------
+        /*
+        Cocina cocina = new Cocina();
+        
+        cocina.crearReceta();
+        cocina.crearReceta();
+        cocina.crearReceta();
+        
+        System.out.println("Ingrese la receta buscada");
+        System.out.println(cocina.buscarReceta(read.nextLine()));
+        
+        System.out.println("Ingrese un ingrediente");
+        System.out.println(cocina.buscarIngrediente(read.nextLine()));
+        */
+        //------------------------ EJ EX 5 -------------------------------------
+        /*
+        Cuenta lucas = new Cuenta(500.30,"Lucas");
+        lucas.retirarDinero();
+        */
+        
+
     }
     
 }

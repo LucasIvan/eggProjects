@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Libro {
     
-    static Scanner read = new Scanner(System.in);
+    static Scanner read = new Scanner(System.in).useDelimiter("\n");
     
     private String isbn;
     private String titulo;
