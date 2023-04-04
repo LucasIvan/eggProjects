@@ -1,12 +1,11 @@
-package claseServicio.services;
+package claseservicio.personaapp.servicios;
 
-import claseServicio.entities.Persona;
+import claseservicio.personaapp.entities.Persona;
 import java.util.Scanner;
 
 public class PersonaServicio {
     
-    static Scanner read = new Scanner(System.in);
-    
+    static Scanner read = new Scanner(System.in).useDelimiter("\n");
     
     public boolean esMayorDeEdad(Persona persona){
         return (persona.getEdad()>= 18);
@@ -17,7 +16,7 @@ public class PersonaServicio {
         boolean verif = false;
         
         System.out.println("Ingrese el nombre");
-        String nombre = (read.nextLine());
+        String nombre = (read.next());
         
         System.out.println("Ingrese la edad");
         int edad = (read.nextInt());
@@ -25,7 +24,7 @@ public class PersonaServicio {
         String sexo;
         do{
            System.out.println("Ingrese el sexo");
-           sexo = (read.nextLine());
+           sexo = (read.next());
         if (sexo.equalsIgnoreCase("H") || sexo.equalsIgnoreCase("M") || sexo.equalsIgnoreCase("O") ) {
             verif = true;
         }else{
@@ -51,7 +50,7 @@ public class PersonaServicio {
         
         if (IMC < 20){
             return -1;
-        } else if (IMC >= 20 || IMC <= 25){
+        } else if (IMC >= 20 && IMC <= 25){
             return 0;
         } else if (IMC > 25){
             return 1;
