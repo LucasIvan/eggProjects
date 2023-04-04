@@ -4,7 +4,7 @@ import claseServicio.entities.CuentaBancaria;
 import java.util.Scanner;
 
 public class CuentaBancariaServicio {
-
+    
     static Scanner read = new Scanner(System.in);
 
     public CuentaBancaria crearCuenta() {

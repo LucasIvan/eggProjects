@@ -1,6 +1,7 @@
 package claseServicio.entities;
 
 public class CuentaBancaria {
+    
     private int numeroCuenta;
     private long dniCliente;
     private double saldoActual;
@@ -42,6 +43,5 @@ public class CuentaBancaria {
     public String toString() {
         return "CuentaBancaria{" + "numeroCuenta=" + numeroCuenta + ", dniCliente=" + dniCliente + ", saldoActual=" + saldoActual + '}';
     }
-    
-    
+
 }

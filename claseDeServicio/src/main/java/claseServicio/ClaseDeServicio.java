@@ -1,11 +1,29 @@
-package claseservicio.personaapp;
+package claseServicio;
 
-import claseservicio.personaapp.entities.Persona;
-import claseservicio.personaapp.servicios.PersonaServicio;
+import claseServicio.entities.Persona;
+import claseServicio.services.PersonaServicio;
 
-public class PersonaApp {
+public class ClaseDeServicio {
 
     public static void main(String[] args) {
+        //--------------------------- EJ 1 -------------------------------------
+        /*
+        CuentaBancariaServicio servicio = new CuentaBancariaServicio();
+        CuentaBancaria cuenta = servicio.crearCuenta();
+        
+        servicio.ingresar(cuenta);
+        servicio.retirar(cuenta);
+        
+        System.out.println(cuenta);
+        //faltan algunos métodos
+        */
+        
+        //--------------------------- EJ 2 -------------------------------------
+        
+        
+        
+        //--------------------------- EJ 3 -------------------------------------
+        
         int[] promIMC = new int[3];
         boolean[] promEdad = new boolean[3];
         
@@ -90,7 +108,8 @@ public class PersonaApp {
                 prom5++;
             }
         }
-        System.out.println("El promedio de personas menores de edad es: "+(prom4/3));
-        System.out.println("El promedio de personas mayores de edad es: "+(prom5/3));
+        System.out.println("El promedio de personas menores de edad es: "+(prom5/3));
+        System.out.println("El promedio de personas mayores de edad es: "+(prom4/3));
+        
     }
 }

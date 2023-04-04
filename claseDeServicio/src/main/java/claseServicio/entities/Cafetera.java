@@ -1,7 +1,7 @@
 package claseServicio.entities;
 
-
 public class Cafetera {
+    
     private double capacidadMaxima;
     private double cantidadActual;
 
@@ -28,6 +28,5 @@ public class Cafetera {
     public void setCantidadActual(double cantidadActual) {
         this.cantidadActual = cantidadActual;
     }
-    
-    
+
 }
