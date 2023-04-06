@@ -10,7 +10,6 @@ public class PersonaServicio {
     public boolean esMayorDeEdad(Persona persona){
         return (persona.getEdad()>= 18);
     }
-
     
     public Persona crearPersona(){
         boolean verif = false;
@@ -43,21 +42,32 @@ public class PersonaServicio {
 
 
     public int calcularIMC(Persona persona){
-        double peso = persona.getPeso();
-        double altura = persona.getAltura();
-        
-        double IMC = peso/(Math.pow(altura, 2));
+        double IMC = persona.getPeso()/(Math.pow(persona.getAltura(), 2));
         
         if (IMC < 20){
             return -1;
         } else if (IMC >= 20 && IMC <= 25){
             return 0;
-        } else if (IMC > 25){
+        } else{
             return 1;
-        } else {
-            System.out.println("A ocurrido un error");
-        }
-        return 0;
+        } 
+        
     }
+    
+    public void informe(Persona persona){
+        
+        if (calcularIMC(persona) == 0){
+            System.out.println("La persona se encuentra en su peso ideal");
+            System.out.println("Es mayor de edad? = "+ esMayorDeEdad(persona));
+        }else if (calcularIMC(persona) == -1){
+            System.out.println("La persona se encuentra por debajo de su peso ideal");
+            System.out.println("Es mayor de edad? = "+ esMayorDeEdad(persona));
+        }else if (calcularIMC(persona) == 1){
+            System.out.println("La persona se encuentra por ensima de su peso ideal");
+            System.out.println("Es mayor de edad = "+ esMayorDeEdad(persona));
+        }
+    }
+    
+    
 
 }

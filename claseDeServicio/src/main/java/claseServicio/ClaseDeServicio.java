@@ -1,115 +1,89 @@
 package claseServicio;
 
+import claseServicio.entities.Cafetera;
+import claseServicio.entities.CuentaBancaria;
+import claseServicio.entities.NIF;
 import claseServicio.entities.Persona;
+import claseServicio.entities.Raices;
+import claseServicio.services.CafeteraServicio;
+import claseServicio.services.CuentaBancariaServicio;
+import claseServicio.services.NIFServicio;
 import claseServicio.services.PersonaServicio;
+import claseServicio.services.RaicesServicio;
 
 public class ClaseDeServicio {
 
     public static void main(String[] args) {
         //--------------------------- EJ 1 -------------------------------------
         /*
-        CuentaBancariaServicio servicio = new CuentaBancariaServicio();
-        CuentaBancaria cuenta = servicio.crearCuenta();
+        CuentaBancariaServicio sv = new CuentaBancariaServicio();
+        CuentaBancaria cuenta = sv.crearCuenta();
         
-        servicio.ingresar(cuenta);
-        servicio.retirar(cuenta);
-        
-        System.out.println(cuenta);
-        //faltan algunos métodos
+        sv.ingresar(cuenta);
+        sv.retirar(cuenta);
+        System.out.println("Extracción rápida");
+        sv.extraccionRapida(cuenta);
+        sv.consultarSaldo(cuenta);
+        sv.consultarDatos(cuenta);
         */
-        
         //--------------------------- EJ 2 -------------------------------------
-        
-        
-        
+        /*
+        CafeteraServicio sv = new CafeteraServicio();
+        sv.llenarCafetera();
+        sv.servirTaza();
+        sv.vaciarCafetera();
+        sv.agregarCafe();
+        */
         //--------------------------- EJ 3 -------------------------------------
+        /*
+        int[] promIMC = new int[4];
+        boolean[] promEdad = new boolean[4];
+        Persona[] personas = new Persona[4];
         
-        int[] promIMC = new int[3];
-        boolean[] promEdad = new boolean[3];
+        PersonaServicio sv = new PersonaServicio();
         
-        PersonaServicio per1 = new PersonaServicio();
-        PersonaServicio per2 = new PersonaServicio();
-        PersonaServicio per3 = new PersonaServicio();
-        PersonaServicio per4 = new PersonaServicio();
+        for (int i = 0; i < personas.length; i++) {
+            personas[i] = sv.crearPersona();
+            sv.informe(personas[i]);
+            promIMC[i] = sv.calcularIMC(personas[i]);
+            promEdad[i] = sv.esMayorDeEdad(personas[i]);
+        }       
+        
+        double prom1 = 0, prom2 = 0, prom3 = 0, prom4 = 0, prom5 = 0;
 
-        Persona registro = per1.crearPersona();
-        
-        boolean mayor = per1.esMayorDeEdad(registro);
-        
-        if (per1.calcularIMC(registro) == 0){
-            System.out.println("La persona se encuentra en su peso ideal");
-            System.out.println("Es mayor de edad? = "+ mayor);
-        }else if (per1.calcularIMC(registro) == -1){
-            System.out.println("La persona se encuentra por debajo de su peso ideal");
-            System.out.println("Es mayor de edad? = "+ mayor);
-        }else if (per1.calcularIMC(registro) == 1){
-            System.out.println("La persona se encuentra por ensima de su peso ideal");
-            System.out.println("Es mayor de edad = "+ mayor);
-        }
-        promIMC[0] = per1.calcularIMC(registro);
-        promEdad[0] = per1.esMayorDeEdad(registro);
-        
-        registro = per2.crearPersona();
-        
-        if (per2.calcularIMC(registro) == 0){
-            System.out.println("La persona se encuentra en su peso ideal");
-            System.out.println("Es mayor de edad? = "+ mayor);
-        }else if (per2.calcularIMC(registro) == -1){
-            System.out.println("La persona se encuentra por debajo de su peso ideal");
-            System.out.println("Es mayor de edad? = "+ mayor);
-        }else if (per2.calcularIMC(registro) == 1){
-            System.out.println("La persona se encuentra por ensima de su peso ideal");
-            System.out.println("Es mayor de edad = "+ mayor);
-        }
-        promIMC[1] = per2.calcularIMC(registro);
-        promEdad[1] = per2.esMayorDeEdad(registro);
-        
-        registro = per3.crearPersona();
-        
-        if (per3.calcularIMC(registro) == 0){
-            System.out.println("La persona se encuentra en su peso ideal");
-            System.out.println("Es mayor de edad? = "+ mayor);
-        }else if (per3.calcularIMC(registro) == -1){
-            System.out.println("La persona se encuentra por debajo de su peso ideal");
-            System.out.println("Es mayor de edad? = "+ mayor);
-        }else if (per3.calcularIMC(registro) == 1){
-            System.out.println("La persona se encuentra por ensima de su peso ideal");
-            System.out.println("Es mayor de edad = "+ mayor);
-        }
-        
-        promIMC[2] = per3.calcularIMC(registro);
-        promEdad[2] = per3.esMayorDeEdad(registro);
-        
-        double prom1 = 0;
-        double prom2 = 0;
-        double prom3 = 0;
-        
-        for (int i = 0; i < 3; i++) {
-            if (promIMC[i]==0) {
-                prom1++;
-            }else if (promIMC[i]==-1) {
-                prom2++;
-            }else if (promIMC[i]==1) {
-                prom3++;
+        for (int i = 0; i < promEdad.length; i++) {
+            switch (promIMC[i]) {
+                case 0 -> prom1++;
+                case -1 -> prom2++;
+                case 1 -> prom3++;
             }
-        }
-        
-        System.out.println("El promedio de personas por debajo de su peso ideal es: "+(prom2/3));
-        System.out.println("El promedio de personas por arriba de su peso ideal es: "+(prom3/3));
-        System.out.println("El promedio de personas en su peso ideal es: "+(prom1/3));
-        
-        double prom4 = 0;
-        double prom5 = 0;
-        
-        for (int i = 0; i < 3; i++) {
-            if (promEdad[i]==true) {
+            if (promEdad[i]) {
                 prom4++;
-            }else if (promEdad[i]==false) {
+            }else if (!promEdad[i]){
                 prom5++;
             }
         }
-        System.out.println("El promedio de personas menores de edad es: "+(prom5/3));
-        System.out.println("El promedio de personas mayores de edad es: "+(prom4/3));
+
+        System.out.println("El promedio de personas en su peso ideal es: " + (prom1 / promIMC.length));
+        System.out.println("El promedio de personas por debajo de su peso ideal es: " + (prom2 / promIMC.length));
+        System.out.println("El promedio de personas por arriba de su peso ideal es: " + (prom3 / promIMC.length));
+        System.out.println("El promedio de personas mayores de edad es: " + (prom4 / promEdad.length));
+        System.out.println("El promedio de personas menores de edad es: " + (prom5 / promEdad.length));
+        */
+        //--------------------------------- EJ EX 1 -------------------------------------------------
+        /*
+        RaicesServicio sv = new RaicesServicio();
+        Raices r = new Raices(2,3,1);
+        
+        sv.calcular(r);
+        */
+        //---------------------------------------------------
+        
+        NIFServicio sv = new NIFServicio();
+        NIF nif = sv.crearNIF();
+        
+        sv.mostrar(nif);
+        
         
     }
 }

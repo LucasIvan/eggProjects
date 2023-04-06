@@ -22,7 +22,7 @@ public class CuentaBancariaServicio {
     }
 
     public void ingresar(CuentaBancaria cuenta) {
-        System.out.println("Indique cuanto desea ingresar:");
+        System.out.print("Indique cuanto desea ingresar: $");
         double monto = read.nextDouble();
         cuenta.setSaldoActual(cuenta.getSaldoActual() + monto);
     }
@@ -30,17 +30,39 @@ public class CuentaBancariaServicio {
     public void retirar(CuentaBancaria cuenta) {
         boolean verif = false;
         do {
-            System.out.println("Indique cuanto desea retirar:");
+            System.out.print("Ingrese el monto a retirar: $");
             double monto = read.nextDouble();
             if (cuenta.getSaldoActual() != 0 && monto <= cuenta.getSaldoActual() && monto > 0) {
                 cuenta.setSaldoActual(cuenta.getSaldoActual() - monto);
                 System.out.println("Su saldo es el siguiente: $" + cuenta.getSaldoActual());
                 verif = false;
             } else if (cuenta.getSaldoActual() == 0 || cuenta.getSaldoActual() < monto) {
-                System.out.println("Saldo Insuficiente\n Saldo actual $"+ cuenta.getSaldoActual()+"\nVolver a intentar? Y/N");
+                System.out.println("Saldo Insuficiente\n Saldo actual $" + cuenta.getSaldoActual() + "\nVolver a intentar? Y/N");
                 verif = read.next().equalsIgnoreCase("Y");
             }
         } while (verif);
     }
-
+    
+    public void extraccionRapida(CuentaBancaria cuenta){
+        System.out.print("Extracción rápida solo puede retirar hasta el 20%\n"
+                + "Su saldo actual es: $" + cuenta.getSaldoActual() + "\n\n"
+                        + "Ingrese el monto a retirar >> $");
+        double monto = read.nextDouble();
+        if (cuenta.getSaldoActual()>= 50 && monto <= cuenta.getSaldoActual()*0.2) {
+            cuenta.setSaldoActual(cuenta.getSaldoActual()- monto);
+            System.out.println("Saldo: $" + cuenta.getSaldoActual());
+        }else{
+            System.out.println("El monto ingresado no es válido o su saldo es insuficiente para usar extracción rápida");
+        }
+    }
+    
+    public void consultarSaldo(CuentaBancaria cuenta){
+        System.out.println("Su saldo actual es: $" + cuenta.getSaldoActual());
+    }
+    
+    public void consultarDatos(CuentaBancaria cuenta){
+        System.out.println("Nro de cuenta: " + cuenta.getNumeroCuenta() + "\n"
+                + "DNI: " + cuenta.getDniCliente() + "\n"
+                + "Saldo: $" + cuenta.getSaldoActual());
+    }
 }
