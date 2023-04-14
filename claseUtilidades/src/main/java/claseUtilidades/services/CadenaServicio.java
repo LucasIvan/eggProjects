@@ -19,8 +19,8 @@ public class CadenaServicio {
         return "La cadena tiene " + cont + " vocales.";
     }
 
-    public String invertirFrase(Cadena cadena) {
-        String frase = cadena.getFrase();
+    public String invertirFrase(Cadena a) {
+        String frase = a.getFrase();
         String fraseInvertida = "";
 
         for (int i = frase.length()-1; i >= 0; i--) {

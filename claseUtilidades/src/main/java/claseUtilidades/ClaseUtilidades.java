@@ -1,7 +1,11 @@
 package claseUtilidades;
 
 import claseUtilidades.entities.Cadena;
+import claseUtilidades.entities.ParDeNumeros;
+import claseUtilidades.services.ArreglosService;
 import claseUtilidades.services.CadenaServicio;
+import claseUtilidades.services.ParDeNumerosService;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -33,9 +37,35 @@ public class ClaseUtilidades {
         System.out.println(sv.contiene(frase, read.next()));
         */
         //---------------------------------------------- EJ 2 -------------------------------------------------------
+        /*
+        ParDeNumerosService sv = new ParDeNumerosService();
+        ParDeNumeros numeros = sv.crearPar();
         
+        sv.mostrarValores(numeros);
+        System.out.println(sv.devolverMayor(numeros));
+        System.out.println(sv.calcularPotencia(numeros));
+        System.out.println(sv.calcularRaiz(numeros));
+        
+        */
         
         //---------------------------------------------- EJ 0 -------------------------------------------------------
+        ArreglosService sv = new ArreglosService();
+        
+        double[] a1 = new double[50];
+        double[] a2 = new double[20];
+        
+        sv.inicializarA(a1);
+        sv.mostrar(a1);
+        sv.ordenar(a1);
+        System.out.println("Arreglo 1 ordenado");
+        sv.mostrar(a1);
+        sv.inicializarB(a1, a2);
+        System.out.println("Arreglo 1");
+        sv.mostrar(a1);
+        System.out.println("Arreglo 2");
+        sv.mostrar(a2);
+        
+        //Arrays.equals(a1, a2);
         
         
         //---------------------------------------------- EJ 0 -------------------------------------------------------
