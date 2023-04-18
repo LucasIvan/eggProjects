@@ -5,20 +5,22 @@ import java.util.Scanner;
 
 public class CuentaBancariaServicio {
     
-    static Scanner read = new Scanner(System.in);
+    Scanner read = new Scanner(System.in);
 
     public CuentaBancaria crearCuenta() {
-
+        
+        CuentaBancaria cuenta = new CuentaBancaria();
+        
         System.out.println("Ingrese el numero de cuenta");
-        int numCuenta = read.nextInt();
+        cuenta.setNumeroCuenta(read.nextInt());
 
         System.out.println("Ingrese el DNI del cliente");
-        long dni = read.nextLong();
+        cuenta.setDniCliente(read.nextLong());
 
         System.out.println("Ingrese el monto inicial");
-        double saldo = read.nextDouble();
+        cuenta.setSaldoActual(read.nextDouble());
 
-        return new CuentaBancaria(numCuenta, dni, saldo);
+        return cuenta;
     }
 
     public void ingresar(CuentaBancaria cuenta) {

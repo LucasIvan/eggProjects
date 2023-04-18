@@ -20,6 +20,7 @@ public class ArreglosService {
     
     public void ordenar(double a[]){
         Arrays.sort(a);
+        Arrays.sort(a, a.length,0);
     }
     
     public double[] inicializarB(double a[], double b[]){

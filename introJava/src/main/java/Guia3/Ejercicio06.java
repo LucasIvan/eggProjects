@@ -50,9 +50,7 @@ public class Ejercicio06 {
                 case 5:
                     System.out.print("¿Está seguro que desea sair del programa?\nY/N\n");
                     String sel = leer.next();
-                    if (sel.equalsIgnoreCase("Y") ){
-                        selec = true;
-                    }
+                    selec = sel.equalsIgnoreCase("Y");
                 default:
                     System.out.print("Saliendo del sistema");
             }
