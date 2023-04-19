@@ -1,13 +1,8 @@
 package claseUtilidades.entities;
-/**
- * un vector con la palabra a buscar, la
-cantidad de letras encontradas y la cantidad jugadas máximas que
-puede realizar el usuario. 
- * @author lucas
- */
+
 public class Ahorcado {
     private int dimension;
-    private String[] palabra = new String[dimension];
+    private String[] palabra;
     private int letrasEncontradas;
     private int jugadasMaximas;
 
@@ -19,8 +14,6 @@ public class Ahorcado {
         this.letrasEncontradas = letrasEncontradas;
         this.jugadasMaximas = jugadasMaximas;
     }
-
-    
 
     public int getDimension() {
         return dimension;
@@ -40,6 +33,7 @@ public class Ahorcado {
 
     public void setDimension(int dimension) {
         this.dimension = dimension;
+        palabra = new String[dimension];
     }
     
     public void setPalabra(String[] palabra) {

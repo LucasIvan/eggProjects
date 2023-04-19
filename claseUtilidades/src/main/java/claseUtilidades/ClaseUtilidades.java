@@ -1,10 +1,12 @@
 package claseUtilidades;
 
+import claseUtilidades.entities.Ahorcado;
 import claseUtilidades.entities.Cadena;
 import claseUtilidades.entities.Curso;
 import claseUtilidades.entities.MesSecreto;
 import claseUtilidades.entities.ParDeNumeros;
 import claseUtilidades.entities.Persona;
+import claseUtilidades.services.AhorcadoService;
 import claseUtilidades.services.ArreglosService;
 import claseUtilidades.services.CadenaServicio;
 import claseUtilidades.services.FechaService;
@@ -22,7 +24,7 @@ public class ClaseUtilidades {
 
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in).useDelimiter("\n");
-        
+
         //---------------------------------------------- EJ 1 -------------------------------------------------------
         /*
         CadenaServicio sv = new CadenaServicio();
@@ -41,7 +43,7 @@ public class ClaseUtilidades {
         System.out.println(sv.reemplazar(frase, read.next()));
         System.out.println("Ingrese la letra que desea saber si se encuentra en la frase");
         System.out.println(sv.contiene(frase, read.next()));
-        */
+         */
         //---------------------------------------------- EJ 2 -------------------------------------------------------
         /*
         ParDeNumerosService sv = new ParDeNumerosService();
@@ -52,8 +54,7 @@ public class ClaseUtilidades {
         System.out.println(sv.calcularPotencia(numeros));
         System.out.println(sv.calcularRaiz(numeros));
         
-        */
-        
+         */
         //---------------------------------------------- EJ 3 -------------------------------------------------------
         /*
         ArreglosService sv = new ArreglosService();
@@ -74,7 +75,7 @@ public class ClaseUtilidades {
         
         //Arrays.equals(a1, a2);
         
-        */
+         */
         //---------------------------------------------- EJ 4 -------------------------------------------------------
         /*
         FechaService sv = new FechaService();
@@ -93,7 +94,7 @@ public class ClaseUtilidades {
         System.out.println("Fecha Actual: " + fechaActual);
         
         System.out.println("La edad del individuo es: " + sv.diferencia(nacimiento, fechaActual) + " años");
-        */
+         */
         //---------------------------------------------- EJ 5 -------------------------------------------------------
         /*
         PersonaService sv = new PersonaService();
@@ -101,27 +102,22 @@ public class ClaseUtilidades {
         Persona persona1 = sv.crearPersona("Lucas", fecha);
         System.out.println(sv.menorQue(persona1, 35));
         sv.mostrarPersona(persona1);
-        */
-        
+         */
         //---------------------------------------------- EJ 6 -------------------------------------------------------
         /*
         Curso curso1 = new Curso();
         
         curso1.crearCurso();
         System.out.println("La ganacia semanal es: $" + curso1.calcularGananciaSemanal());
-        */
+         */
         //---------------------------------------------- EJ EX 1 -------------------------------------------------------
         /*
         MesSecreto adivinar = new MesSecreto();
         adivinar.adivineMes();
-        */
-        //---------------------------------------------- EJ 5 -------------------------------------------------------
+         */
+        //---------------------------------------------- EJ EX 2 -------------------------------------------------------
         
-        
-        
-        
-        //---------------------------------------------- EJ 5 -------------------------------------------------------
-        
-        //---------------------------------------------- EJ 5 -------------------------------------------------------
+        AhorcadoService.juego();
+
     }
 }

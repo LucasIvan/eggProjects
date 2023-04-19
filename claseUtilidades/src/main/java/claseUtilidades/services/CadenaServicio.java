@@ -1,7 +1,6 @@
 package claseUtilidades.services;
 
 import claseUtilidades.entities.Cadena;
-import java.util.Scanner;
 
 public class CadenaServicio {
 
