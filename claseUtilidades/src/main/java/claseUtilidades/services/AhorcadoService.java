@@ -41,14 +41,14 @@ public class AhorcadoService {
     public static boolean encontradas(Ahorcado juego, String letra) {
         int cont = 0;
         int totalEncontradas = 0;
-        if (juego.getLetrasEncontradas()==juego.getDimension()) {
+        if (juego.getLetrasEncontradas() == juego.getDimension()) {
             return false;
-        }else{
+        } else {
             for (String x : juego.getPalabra()) {
                 for (int i = 0; i < x.length(); i++) {
                     if (x.charAt(i) == letra.charAt(0)) {
                         cont++;
-                        juego.getPalabra()[i]= "$";
+                        juego.getPalabra()[i] = "$";
                     }
                 }
                 totalEncontradas += cont;
@@ -56,7 +56,7 @@ public class AhorcadoService {
             }
             if (totalEncontradas == 0) {
                 System.out.println("Número de letras (encontradas, faltantes): (" + juego.getLetrasEncontradas() + "," + ((juego.getPalabra().length) - juego.getLetrasEncontradas()) + ")");
-                juego.setJugadasMaximas(juego.getJugadasMaximas()-1);
+                juego.setJugadasMaximas(juego.getJugadasMaximas() - 1);
                 return false;
             } else {
                 juego.setLetrasEncontradas(juego.getLetrasEncontradas() + totalEncontradas);
@@ -64,38 +64,39 @@ public class AhorcadoService {
                 return true;
             }
         }
-        
+
     }
 
     public static int intentos(Ahorcado juego) {
-        if (juego.getLetrasEncontradas()==juego.getPalabra().length) {
+        if (juego.getLetrasEncontradas() == juego.getPalabra().length) {
             System.out.println("VICTORIA");
             return 0;
-        }else{
+        } else {
             System.out.println("Intentos restantes: " + juego.getJugadasMaximas());
             return juego.getJugadasMaximas();
         }
-        
+
     }
-    
-    public static void juego(){
+
+    public static void juego() {
         Scanner read = new Scanner(System.in).useDelimiter("\n");
-        
+
         System.out.println("Ingrese una palabra");
         String palabra = read.next();
         System.out.println("Ingrese la cantidad de jugadas máximas");
         int jugadas = read.nextInt();
-        
+
         Ahorcado juego = crearJuego(palabra, jugadas);
         longitud(juego);
         String letra;
-        
-        while (intentos(juego)>0){
+
+        while (intentos(juego) > 0) {
             System.out.print("Ingrese la letra a buscar >> ");
-        letra = read.next();
-        buscar(juego, letra);
-        encontradas(juego, letra);
-        
-    }}
+            letra = read.next();
+            buscar(juego, letra);
+            encontradas(juego, letra);
+
+        }
+    }
 
 }

@@ -3,15 +3,18 @@ package claseUtilidades;
 import claseUtilidades.entities.Ahorcado;
 import claseUtilidades.entities.Cadena;
 import claseUtilidades.entities.Curso;
+import claseUtilidades.entities.Estudiante;
 import claseUtilidades.entities.MesSecreto;
 import claseUtilidades.entities.ParDeNumeros;
 import claseUtilidades.entities.Persona;
 import claseUtilidades.services.AhorcadoService;
 import claseUtilidades.services.ArreglosService;
 import claseUtilidades.services.CadenaServicio;
+import claseUtilidades.services.EstudianteService;
 import claseUtilidades.services.FechaService;
 import claseUtilidades.services.ParDeNumerosService;
 import claseUtilidades.services.PersonaService;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
@@ -116,8 +119,26 @@ public class ClaseUtilidades {
         adivinar.adivineMes();
          */
         //---------------------------------------------- EJ EX 2 -------------------------------------------------------
-        
+        /*
         AhorcadoService.juego();
-
+        */
+        //-------------------------------------------- INTEGRADOR ------------------------------------------------------
+        
+        Estudiante estudiantes[] = new Estudiante[8];
+        
+        estudiantes[0] = new Estudiante("Lucas",10);
+        estudiantes[1] = new Estudiante("Ivan",7.5);
+        estudiantes[2] = new Estudiante("Ana",8);
+        estudiantes[3] = new Estudiante("Pablo",5);
+        estudiantes[4] = new Estudiante("Leandro",5.75);
+        estudiantes[5] = new Estudiante("María",3);
+        estudiantes[6] = new Estudiante("Cecilia",9);
+        estudiantes[7] = new Estudiante("Javier",10);
+        
+        System.out.println("El promedio de notas es: " + EstudianteService.promedio(estudiantes));//7,28125
+        ArrayList destacados = EstudianteService.destacados(estudiantes);
+        
+        System.out.println("Los alumnos con nota mayor al promedio son: " + destacados.toString());
+        
     }
 }
