@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Perros {
 
     Scanner read;
-    List<String> razas;
+    List <String> razas;
 
     public Perros() {
         this.razas = new ArrayList();
@@ -32,7 +32,7 @@ public class Perros {
         System.out.println("Ingrese una raza");
         String raza = read.next();
 
-        Iterator<String> it = razas.iterator();
+        Iterator <String> it = razas.iterator();
         String aux;
         if (razas.contains(raza)) {
             while (it.hasNext()) {
