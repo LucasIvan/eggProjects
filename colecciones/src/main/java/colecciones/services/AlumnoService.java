@@ -2,7 +2,6 @@ package colecciones.services;
 
 import colecciones.entities.Alumno;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class AlumnoService {

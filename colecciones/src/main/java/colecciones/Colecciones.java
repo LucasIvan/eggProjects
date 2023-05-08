@@ -1,11 +1,18 @@
 package colecciones;
 
 import colecciones.entities.Alumno;
+import colecciones.entities.Pais;
+import colecciones.entities.Pelicula;
 import colecciones.entities.Perros;
 import colecciones.services.AlumnoService;
+import colecciones.services.PaisService;
+import colecciones.services.PeliculaService;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+
 import java.util.Scanner;
+
 
 /**
  *
@@ -42,9 +49,28 @@ public class Colecciones {
         as.notaFinal(nombreAlumno, alumnos);
         */
         //----------------------------------- EJ 4 -----------------------------------------------------------
+        /*
+        ArrayList <Pelicula> peliculas = new ArrayList();
+        PeliculaService sv = new PeliculaService();
         
+        sv.cargarPelicula(peliculas);
+        sv.mostrarLista(peliculas);
+        sv.peliculasMayorUnaHora(peliculas);
+        sv.ordenMayorMenor(peliculas);
+        sv.ordenMenorMayor(peliculas);
+        sv.ordenTitulo(peliculas);
+        sv.ordenDirector(peliculas);
+        */
         //----------------------------------- EJ 5 -----------------------------------------------------------
-        
+        /*
+        PaisService sv = new PaisService();
+        HashSet<Pais> listaPaises = sv.cargarPaises();
+        ArrayList<Pais> list = new ArrayList(listaPaises);
+        Collections.sort(list,sv.compararNombre);
+        sv.eliminarPais(list);
+        */
         //----------------------------------- EJ 6 -----------------------------------------------------------
+        
+        
     }
 }

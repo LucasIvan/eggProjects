@@ -12,11 +12,11 @@ public class PeliculaService {
     private Pelicula crearPelicula(){
         Pelicula peli = new Pelicula();
         
-        System.out.print("Iingrese el Nombre de la Pelicula: ");
+        System.out.print("Ingrese el Nombre de la Pelicula: ");
         peli.setTitulo(read.next().toUpperCase());
-        System.out.print("Iingrese el Director de la Pelicula: ");
+        System.out.print("Ingrese el Director de la Pelicula: ");
         peli.setDirector(read.next().toUpperCase());
-        System.out.print("Iingrese la Duración de la Pelicula (En horas): ");
+        System.out.print("Ingrese la Duración de la Pelicula (En horas): ");
         peli.setDuracion(read.nextDouble());
         
         return peli;
@@ -48,27 +48,21 @@ public class PeliculaService {
         }
     }
 
-    public Comparator <Pelicula> compararDuracion =new Comparator <Pelicula>(){
+    public Comparator <Pelicula> compararDuracion = new Comparator <Pelicula>(){
         @Override
         public int compare(Pelicula p1, Pelicula p2) {
-            if (p2.getDuracion() < p1.getDuracion()) {
-                    return -1;
-                } else if (p2.getDuracion() > p1.getDuracion()) {
-                    return 1;
-                } else {
-                    return 0;
-                }
+            return p2.getDuracion().compareTo(p1.getDuracion());
         }
     };
     
-    public Comparator <Pelicula> compararTitulo =new Comparator <Pelicula>(){
+    public Comparator <Pelicula> compararTitulo = new Comparator <Pelicula>(){
         @Override
         public int compare(Pelicula p1, Pelicula p2) {
             return p1.getTitulo().compareTo(p2.getTitulo());
         }
     };
     
-    public Comparator <Pelicula> compararDirector =new Comparator <Pelicula>(){
+    public Comparator <Pelicula> compararDirector = new Comparator <Pelicula>(){
         @Override
         public int compare(Pelicula p1, Pelicula p2) {
             return p1.getDirector().compareTo(p2.getDirector());
@@ -79,28 +73,28 @@ public class PeliculaService {
         peliculas.sort(compararDuracion);
         Collections.reverse(peliculas);
         System.out.println("");
-        System.out.println("Peliculas Ordenada de Menor a Mayor:");
+        System.out.println("Peliculas Ordenadas de Menor a Mayor:");
         mostrarLista(peliculas);
     }
     
     public void ordenMayorMenor(ArrayList <Pelicula> peliculas){
         peliculas.sort(compararDuracion);
         System.out.println("");
-        System.out.println("Peliculas Ordenada Mayor a Menor:");
+        System.out.println("Peliculas Ordenadas Mayor a Menor:");
         mostrarLista(peliculas);
     }
     
     public void ordenTitulo(ArrayList <Pelicula> peliculas){
         peliculas.sort(compararTitulo);
         System.out.println("");
-        System.out.println("Peliculas Ordenada por Titulo:");
+        System.out.println("Peliculas Ordenadas por Titulo:");
         mostrarLista(peliculas);
     }
     
     public void ordenDirector(ArrayList <Pelicula> peliculas){
         peliculas.sort(compararDirector);
         System.out.println("");
-        System.out.println("Peliculas Ordenada por Director:");
+        System.out.println("Peliculas Ordenadas por Director:");
         mostrarLista(peliculas);
     }
 }

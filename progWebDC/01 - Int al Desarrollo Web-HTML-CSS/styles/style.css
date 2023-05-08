@@ -1,0 +1,16 @@
+body{
+    background-color: lightblue;
+    color: brown;
+}
+
+h1{
+    font-family: 'Segoe UI';
+    text-align: center;
+}
+
+p{
+    font-family: 'Helvetica';
+    margin: 20px;
+    padding: 10px;
+}
+
