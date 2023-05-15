@@ -1,0 +1,44 @@
+header {
+  background-color: darkblue;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li{
+    display: inline-block;
+    color: #fff;
+    margin: 0 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+}
+
+nav a:hover {
+  color: #1BF7DE;
+}
+
+@media (max-width: 767px){
+    header{
+        background-color: darkred;
+    }
+
+    nav{
+        font-size: 20px;
+    }  
+}
+
+@media (min-width: 1200px) {
+    header{
+        width: 1200px;
+    }
+}

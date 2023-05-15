@@ -1,0 +1,29 @@
+
+body{
+  background-color: aqua;
+}
+
+.btn{
+  width: 100px;
+  height: 40px;
+  background-color: orange;
+}
+
+@media (max-width: 600px) { 
+  body{
+    background-color: pink;
+  }
+  .btn{
+    background-color: darkblue;
+  }
+}
+
+@media (max-width: 400px) { 
+  body{
+    background-color: red;
+  }
+
+  .btn{
+    background-color: green;
+  }
+}

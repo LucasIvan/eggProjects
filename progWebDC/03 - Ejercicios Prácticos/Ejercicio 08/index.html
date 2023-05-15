@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Título</title>
+    </head>
+    <body>
+        <div class="contenedor-formulario">
+            <form id="formulario">
+                <div class="campo">
+                    <label for="email">Correo electrónico</label>
+                    <input type="text" id="email" name="email">
+                    <div id="email-error" class="mensaje-error"></div>
+                </div>
+                <div class="campo">
+                    <label for="edad">Edad</label>
+                    <input type="number" id="edad" name="edad">
+                    <div id="edad-error" class="mensaje-error"></div>
+                </div>
+                <button class="btn-enviar" type="submit">Enviar</button>
+            </form>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>

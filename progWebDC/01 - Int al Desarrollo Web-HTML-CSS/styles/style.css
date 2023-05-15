@@ -3,14 +3,38 @@ body{
     color: brown;
 }
 
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
 h1{
     font-family: 'Segoe UI';
     text-align: center;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+}
+
+
 p{
     font-family: 'Helvetica';
     margin: 20px;
     padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .column {
+    flex: 100%;
+  }
 }
 

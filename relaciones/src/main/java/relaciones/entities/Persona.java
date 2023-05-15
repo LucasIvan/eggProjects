@@ -3,7 +3,9 @@ package relaciones.entities;
 public class Persona {
     private String nombre;
     private String apellido;
+    private Integer edad;
     private Dni dni;
+    private Perro perro;
 
     public Persona() {
     }
@@ -26,6 +28,14 @@ public class Persona {
         return dni;
     }
 
+    public Integer getEdad() {
+        return edad;
+    }
+
+    public Perro getPerro() {
+        return perro;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -36,6 +46,14 @@ public class Persona {
 
     public void setDni(Dni dni) {
         this.dni = dni;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
+
+    public void setPerro(Perro perro) {
+        this.perro = perro;
     }
 
     @Override
