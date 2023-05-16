@@ -43,6 +43,12 @@ a {
   display: none;
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
   max-width: 800px;
   margin: auto;
@@ -69,6 +75,17 @@ p{
     font-family: 'Helvetica';
     margin: 20px;
     padding: 10px;
+}
+
+.imagenes{
+  display: flex;
+}
+
+footer{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
