@@ -1,3 +1,8 @@
+document.querySelector(".button-menu-toggle").addEventListener('click', function () {
+  document.querySelector(".nav-links").classList.toggle("nav-links-responsive");
+});
+
+
 const form = document.getElementById('myForm');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -7,7 +12,7 @@ form.addEventListener('submit', function(event) {
 function validateEmail(email) {
   const regex =  /^[^\s@]+@[^\s@]+\.[^\s@]{2,7}$/
   return regex.test(email)
-}
+};
 
 function validateForm() {
   const emailInput = document.getElementById('email');
@@ -17,10 +22,6 @@ function validateForm() {
   } else {
     alert('Correo electrónico enviado correctamente.');
   }
-}
+};
 
-document.querySelector("button.button-menu-toggle")
-    .addEventListener("click", function () {
-        document.querySelector(".nav-links").
-            classList.toggle("nav-links-responsive")
-    })
+

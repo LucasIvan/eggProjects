@@ -1,0 +1,28 @@
+.image-slider{
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    background-color: #000000;
+    height: 600px;
+    position: relative;
+  
+
+
+}
+
+.image-slider .btn1{
+    position: absolute;
+    left: 0;
+}
+
+.image-slider .btn2{
+    position: absolute;
+    right: 0;
+}
+
+.imagen{
+    max-width: 99%;
+    max-height: 99%;
+}

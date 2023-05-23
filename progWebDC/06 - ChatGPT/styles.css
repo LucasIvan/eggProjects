@@ -1,0 +1,138 @@
+/* styles.css */
+
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Encabezado y navegación */
+header {
+  background-color: #673ab7;
+  color: #fff;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Sección del héroe */
+#hero {
+  background-color: #9c27b0;
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero-content span {
+  color: #f3e5f5;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f3e5f5;
+  color: #9c27b0;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e1bee7;
+}
+
+/* Sección de "Sobre Mí" */
+#about {
+  background-color: #fafafa;
+  padding: 50px;
+}
+
+.about-content {
+  text-align: center;
+}
+
+.about-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* Sección de proyectos */
+#projects {
+  background-color: #fff;
+  padding: 50px;
+}
+
+.project {
+  margin: 20px;
+  text-align: center;
+}
+
+.project img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project h3 {
+  margin-top: 10px;
+}
+
+/* Sección de contacto */
+#contact {
+  background-color: #673ab7;
+  padding: 50px;
+  color: #fff;
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact-content form input,
+.contact-content form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-content form button {
+  padding: 10px 20px;
+  background-color: #f3e5f5;
+  color: #9c27b0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Pie de página */
+footer {
+  background-color: #673ab7;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
