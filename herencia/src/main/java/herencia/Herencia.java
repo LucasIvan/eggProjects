@@ -1,11 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package herencia;
 
-import herencia.entities.Electrodomestico;
-import herencia.services.ElectrodService;
+import herencia.entities.Lavadora;
+import herencia.entities.Televisor;
+import herencia.services.LavadoraService;
+import herencia.services.TelevisorService;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -32,13 +32,19 @@ public class Herencia {
         */
         //******************************** EJ 2 ***********************************************************
         
-        ElectrodService ele = new ElectrodService();
-        Electrodomestico electro1 = ele.crearElectrodomestico();
+        LavadoraService sv = new LavadoraService();
+        Lavadora lavadora = sv.crearLavadora();
         
+        TelevisorService tvsv = new TelevisorService();
+        Televisor televisor = tvsv.crearTelevisor();
         
-        ele.precioFinal(electro1);
+        sv.precioFinal(lavadora);
+        System.out.print("Precio Lavadora : $");
+        System.out.println(lavadora.getPrecio());
+        tvsv.precioFinal(televisor);
+        System.out.print("Precio Televisor : $");
+        System.out.println(televisor.getPrecio());
         
-        System.out.println(electro1);
         
         
     }

@@ -59,7 +59,7 @@ public class ClaseUtilidades {
         
          */
         //---------------------------------------------- EJ 3 -------------------------------------------------------
-        /*
+        
         ArreglosService sv = new ArreglosService();
         
         double[] a1 = new double[50];
@@ -78,7 +78,7 @@ public class ClaseUtilidades {
         
         //Arrays.equals(a1, a2);
         
-         */
+         
         //---------------------------------------------- EJ 4 -------------------------------------------------------
         /*
         FechaService sv = new FechaService();

@@ -1,6 +1,6 @@
 package herencia.entities;
 
-public class Electrodomestico {
+public abstract class Electrodomestico {
     private Double precio;
     private String color;
     private Character consumo;
@@ -50,7 +50,13 @@ public class Electrodomestico {
 
     @Override
     public String toString() {
-        return "Electrodomestico{" + "precio=" + precio + ", color=" + color + ", consumo=" + consumo + ", peso=" + peso + '}';
+        return """
+               Electrodomestico
+               ---------------------------------Precio = $""" + precio + "\n"
+                + "Color = " + color.toUpperCase() + "\n"
+                + "Consumo = " + consumo + "\n"
+                + "Peso = " + peso + "Kg }"
+                + "---------------------------------";
     }
     
 }
