@@ -3,7 +3,7 @@ package herencia.services;
 import herencia.entities.Electrodomestico;
 import java.util.Scanner;
 
-public abstract class ElectrodService {
+public class ElectrodService {
     private Scanner read = new Scanner(System.in).useDelimiter("\n");
     
     protected Character comprobarConsumoEnergetico(char letra) {
@@ -41,7 +41,7 @@ public abstract class ElectrodService {
         return electrodomestico;
     }
 
-    protected void precioFinal(Electrodomestico electrodomestico) {
+    public void precioFinal(Electrodomestico electrodomestico) {
         char consumo = electrodomestico.getConsumo();
         double precio = electrodomestico.getPrecio();
         double peso = electrodomestico.getPeso();

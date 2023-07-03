@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zapatillas</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+
+    <body>
+        <header>
+            <div class="container-nav">
+            <nav class="navbar" role="navigation">
+                <h1><a href="mi-primer-website.html" class="brand">Zapatillas</a></h1>
+                
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="button-menu-toggle">Menu</button>
+        </div>
+        </header>
+
+        <div id="carrousel">
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="./assets/pexels-aman-jakhar-1124466.jpg" alt="Imagen 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/pexels-ox-street-6050929.jpg" alt="Imagen 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./assets/pexels-victor-filemon-lopez-sanchez-15036819.jpg" alt="Imagen 3">
+                </div>
+                <div class="carousel-navigation">
+                    <button class="carousel-prev"></button>
+                    <button class="carousel-next"></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="productos">
+            <h2>Productos</h2>
+            <div class="mosaicos">
+                <div class="mosaico">
+                    <div class="image-container">
+                        <img src="./assets/pexels-aman-jakhar-1124466.jpg" alt="Imagen 1">
+                    </div>
+                    <div class="leyenda">Producto 1</div>
+                </div>
+                <div class="mosaico">
+                    <div class="image-container">
+                        <img src="./assets/pexels-ox-street-6050929.jpg" alt="Imagen 2">
+                    </div>
+                    <div class="leyenda">Producto 2</div>
+                </div>
+                <div class="mosaico">
+                    <div class="image-container">
+                        <img src="./assets/pexels-victor-filemon-lopez-sanchez-15036819.jpg" alt="Imagen 3">
+                    </div>
+                    <div class="leyenda">Producto 3</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="suscribirse">
+            <h2>Suscribirse</h2>
+            <form id="suscripcion-form">
+                <input type="email" id="email-sus" placeholder="Correo electrónico" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+
+        <div id="contacto">
+            <h2>Contacto</h2>
+            <form id="contacto-form">
+                <input type="text" id="nombre-input" placeholder="Nombre" required>
+                <input type="email" id="email-input" placeholder="Correo electrónico" required>
+                <textarea id="mensaje-input" placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </div>
+
+        <footer>
+            <div class="redes-sociales">
+                <a href="#"><img
+                        src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/facebook/facebook-original.svg"
+                        alt="" width="40px"></a>
+                <a href="#"><img
+                        src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/twitter/twitter-original.svg"
+                        alt="" width="40px"></a>
+                <a href="#"><img src="./assets/69823-instagram-icons-symbol-youtube-computer-logo.png" alt=""
+                        width="40px"></a>
+            </div>
+            <p>Lucas Molina - Todos los derechos reservados &copy; 2023</p>
+        </footer>
+
+        <script src="./scripts.js"></script>
+    </body>
+
+</html>
