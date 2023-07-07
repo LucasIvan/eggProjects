@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  */
 @Entity
 public class Libro implements Serializable {

@@ -6,7 +6,7 @@ import libreriajpa.persistence.AutorDAO;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  */
 public class AutorService {
     
@@ -29,7 +29,7 @@ public class AutorService {
                                ========================================
                                """);
             Autor autor = new Autor(nombre, true);
-            autorDao.crear(autor);
+            autorDao.crearAutor(autor);
             return autor;
         }
     }

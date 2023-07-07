@@ -5,12 +5,12 @@ import libreriajpa.services.*;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  */
 public class Libreria {
 
     /**
-     * @param args the command line arguments
+     * @param args
      */
     public static void main(String[] args) {
         menu();
@@ -29,11 +29,12 @@ public class Libreria {
                                     4 - Prestar Libro/s
                                     5 - Devolucion de Libros
                                     6 - Ingresar Libro
+                                    7 - Modificar Registro
                                     0 - Salir
                            ========================================    
                            """);
             try {
-                String selec = read.next();
+                String selec = read.next().trim();
                 LibroService ls = new LibroService();
                 switch (selec) {
                     case "1" -> {

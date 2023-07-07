@@ -4,12 +4,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  * @param <T>
  */
 public abstract class DAO<T> {
@@ -37,7 +37,7 @@ public abstract class DAO<T> {
         }
     }
 
-    public void crear(T entity) {
+    protected void crear(T entity) {
         conectar();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -56,7 +56,7 @@ public abstract class DAO<T> {
         }
     }
 
-    public void actualizar(T entity) {
+    protected void actualizar(T entity) {
         conectar();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -100,7 +100,7 @@ public abstract class DAO<T> {
         return entity;
     }
 
-    public List<T> consulta(Class<T> entityClass, String atributo, String valor) {
+    protected List<T> consulta(Class<T> entityClass, String atributo, String valor) {
         conectar();
         List<T> entities = null;
         try {

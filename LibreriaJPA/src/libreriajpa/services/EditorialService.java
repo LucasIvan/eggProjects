@@ -6,7 +6,7 @@ import libreriajpa.persistence.EditorialDAO;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  */
 public class EditorialService {
     
@@ -29,7 +29,7 @@ public class EditorialService {
                                ========================================
                                """);
             Editorial editorial = new Editorial(nombre, true);
-            editorialDao.crear(editorial);
+            editorialDao.crearEditorial(editorial);
             return editorial;
         }
     }

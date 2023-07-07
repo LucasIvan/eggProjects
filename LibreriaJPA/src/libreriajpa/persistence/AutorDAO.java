@@ -5,10 +5,14 @@ import libreriajpa.entities.Autor;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  */
 public class AutorDAO extends DAO {
-
+    
+    public void crearAutor(Autor autor){
+        super.crear(autor);
+    }
+    
     public Autor buscarAutor(String nombre) {
         List<Autor> autores = super.consulta(Autor.class, "nombre", "'"+nombre+"'");
         if (!autores.isEmpty()) {

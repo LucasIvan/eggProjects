@@ -7,7 +7,7 @@ import libreriajpa.persistence.LibroDAO;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  */
 public class LibroService {
 
@@ -24,111 +24,153 @@ public class LibroService {
                            """);
         System.out.print("ISBN >> ");
         try {
-            String isbn = read.next();
-            //TODO: mejorar la busqueda para que al encontrar es isbn si "alta = false" editar toda la info del libro.
-            if (libroDao.consultarLibros("isbn", isbn)) {
-                actualizarCantidad(isbn);
+            String isbn = read.next().trim();
+            List buscarLibro = libroDao.consultarLibros("isbn", isbn);
+            if (buscarLibro.get(0).equals(true)) {
+                libroEncontrado(buscarLibro);
             } else {
                 crearNuevoLibro(isbn);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("EXCEPCION AL INGRESAR LIBRO");
         }
-
     }
 
-    private void actualizarCantidad(String isbn) {//AÑADIR MENU DE OPCIONES PARA PARA PERMITIR MODIFICAR A GUSTO EL LIBRO
-        System.out.println("""
-                               ========================================
-                                            LIBRO ENCONTRADO
-                               ========================================
-                               """);
-        System.out.println("""
-                               ========================================
-                                    Desea atualizar datos del libro
-                               ========================================
-                               """);
-        System.out.print("Y/N >> ");
+    private void actualizarLibro(Libro libro) {
+        boolean salir = false;
         try {
-            boolean selec = read.next().equalsIgnoreCase("Y");
-
-            if (selec) {
-                List<Libro> libros = libroDao.consulta(Libro.class, "isbn", "'"+isbn+"'");
-                Libro libro = libros.get(0);
+            do {
                 System.out.println("""
                                    ========================================
                                                   MENU EDITAR
                                    ========================================
-                                   1 - Editar Titulo
-                                   2 - Editar Autor
-                                   3 - Editar Anho
-                                   4 - Editar Editorial
-                                   5 - Sumar Ejemplares
-                                   0 - Salir Sin Editar
+                                             1 - Editar Alta
+                                             2 - Editar Titulo
+                                             3 - Editar Autor
+                                             4 - Editar Anho
+                                             5 - Editar Editorial
+                                             6 - Sumar Ejemplares
+                                             7 - Confirmar Cambios
+                                             0 - Salir
+                                   ========================================
                                    """);
-                String selecEdit = read.next();
-                //TODO: añadir bucle
+                String selecEdit = read.next().trim();
                 switch (selecEdit) {
                     case "1" -> {
-                        System.out.print("Ingrese Nuevo Nombre >> ");
-                        String titulo = read.next();
-                        libro.setTitulo(titulo);
+                        System.out.println("""
+                                           ========================================
+                                                        A - Dar ALTA
+                                                        B - Dar BAJA
+                                           ========================================
+                                           """);
+                        String selecAlta = read.next().toUpperCase().trim();
+                        switch (selecAlta) {
+                            case "A":
+                                libroDao.switchAlta(libro, Boolean.TRUE);
+                                break;
+                            case "B":
+                                libroDao.switchAlta(libro, Boolean.FALSE);
+                            default:
+                                System.out.println("""
+                                           ========================================
+                                                        Opcion inválida
+                                           ========================================
+                                           """);
+                        }
                     }
                     case "2" -> {
+                        System.out.print("Ingrese Nuevo Titulo >> ");
+                        String titulo = read.next().trim();
+                        libro.setTitulo(titulo);
+                    }
+                    case "3" -> {
                         System.out.print("Ingrese Nuevo Autor >> ");
-                        String autorNombre = read.next();
+                        String autorNombre = read.next().trim();
                         Autor autor = autorService.ingresarAutor(autorNombre);
                         libro.setAutor(autor);
                     }
-                    case "3" -> {
-                        
-                    }
                     case "4" -> {
-                        
+                        System.out.print("Ingrese Nuevo Anho >> ");
+                        String anho = read.next().trim();
+                        libro.setAnho(Integer.valueOf(anho));
                     }
                     case "5" -> {
+                        System.out.print("Ingrese Nuevo Autor >> ");
+                        String editorialNombre = read.next().trim();
+                        Editorial editorial = editorialService.ingresarEditorial(editorialNombre);
+                        libro.setEditorial(editorial);
+                    }
+                    case "6" -> {
                         System.out.print("Ingrese la cantidad a sumar >> ");
-                        String cant = read.next();
-                        libro.setEjemplares(libro.getEjemplares()+ Integer.valueOf(cant));
-                        libro.setEjemplaresRestantes(libro.getEjemplaresRestantes()+Integer.valueOf(cant));
+                        String cant = read.next().trim();
+                        libro.setEjemplares(libro.getEjemplares() + Integer.valueOf(cant));
+                        libro.setEjemplaresRestantes(libro.getEjemplaresRestantes() + Integer.valueOf(cant));
                         System.out.println("========================================");
                         System.out.println("Se agregaron " + cant + " unidades al stock.");
                         System.out.println("========================================");
                     }
-                    case "0" -> {
-                        System.out.println("No se realizo ninguna modificacion");
+                    case "7" -> {
+                        System.out.println("""
+                                   ========================================
+                                               CONFIRMAR CAMBIOS
+                                   ========================================
+                                   """);
+                        System.out.println(libro);
+                        System.out.println("""
+                               ========================================
+                                   Confirmar y actualizar los datos?
+                               ========================================
+                               """);
+                        System.out.print("Y/N >> ");
+                        boolean selec = read.next().trim().equalsIgnoreCase("Y");
+                        if (selec) {
+                            libroDao.editarLibro(libro);
+                        } else {
+                            System.out.println("""
+                               ========================================
+                                  HA CANCELADO LOS CAMBIOS DEL LIBRO
+                               ========================================
+                               """);
+                        }
+                        salir = true;
                     }
-                    default -> {System.out.println("Elija opción válida");}
+                    case "0" -> {
+                        salir = true;
+                    }
+                    default -> {
+                        System.out.println("""
+                                           ========================================
+                                                    Ingrese una opcion valida
+                                           ========================================
+                                           """);
+                    }
                 }
-                
-
-            } else {
-                System.out.println("No se efectuaron cambios para el libro");
-            }
-        } catch (Exception e) {
-            System.out.println("Error al leer la entrada del usuario: " + e.getMessage());
+            } while (!salir);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
     }
 
     private void crearNuevoLibro(String isbn) {
         try {
             System.out.print("Titulo >> ");
-            String titulo = read.next();
+            String titulo = read.next().trim();
 
             System.out.print("Anio >> ");
-            String anho = read.next();
+            String anho = read.next().trim();
 
             System.out.print("Cantidad de ejemplares >> ");
-            String ejemplares = read.next();
+            String ejemplares = read.next().trim();
 
             System.out.print("Nombre de Autor >> ");
-            String autorNombre = read.next().toUpperCase();
+            String autorNombre = read.next().toUpperCase().trim();
             Autor autor = autorService.ingresarAutor(autorNombre);
 
             System.out.print("Nombre de Editorial >> ");
-            String editorialNombre = read.next().toUpperCase();
+            String editorialNombre = read.next().toUpperCase().trim();
             Editorial editorial = editorialService.ingresarEditorial(editorialNombre);//revisar metodos de Editorial
-            
+
             Libro libro = new Libro(isbn, titulo, Integer.valueOf(anho), Integer.valueOf(ejemplares), Boolean.TRUE, autor, editorial);
             System.out.println("""
                                ========================================
@@ -143,10 +185,10 @@ public class LibroService {
                                ========================================
                                """);
             System.out.print("Y/N >> ");
-            boolean selec = read.next().equalsIgnoreCase("Y");
+            boolean selec = read.next().trim().equalsIgnoreCase("Y");
 
             if (selec) {
-                libroDao.crear(libro);
+                libroDao.crearLibro(libro);
                 System.out.println("""
                                ========================================
                                           REGISTRO COMPLETADO
@@ -160,6 +202,7 @@ public class LibroService {
                                """);
             }
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("EXCEPCION AL INTENTAR CREAR LIBRO");
         }
     }
@@ -180,27 +223,39 @@ public class LibroService {
                            ========================================   
                            """);
             try {
-                selec = read.next();
+                selec = read.next().trim();
                 switch (selec) {
                     case "1" -> {
                         System.out.print("ISBN >> ");
-                        String isbn = read.next();
-                        libroDao.consultarLibros("isbn", "'"+isbn+"'");
+                        String isbn = read.next().trim();
+                        List buscar = libroDao.consultarLibros("isbn", "'" + isbn + "'");
+                        if (buscar.get(0).equals(true)) {
+                            libroEncontrado(buscar);
+                        }
                     }
                     case "2" -> {
                         System.out.print("Titulo >> ");
-                        String titulo = read.next();
-                        libroDao.consultarLibros("titulo", "'"+titulo+"'");
+                        String titulo = read.next().trim();
+                        List buscar = libroDao.consultarLibros("titulo", "'" + titulo + "'");
+                        if (buscar.get(0).equals(true)) {
+                            libroEncontrado(buscar);
+                        }
                     }
                     case "3" -> {
                         System.out.print("Autor >> ");
-                        String autor = read.next();
-                        libroDao.consultarLibros("autor.nombre", "'"+autor+"'");
+                        String autor = read.next().trim();
+                        List buscar = libroDao.consultarLibros("autor.nombre", "'" + autor + "'");
+                        if (buscar.get(0).equals(true)) {
+                            libroEncontrado(buscar);
+                        }
                     }
                     case "4" -> {
                         System.out.print("Editorial >> ");
-                        String editorial = read.next();
-                        libroDao.consultarLibros("editorial.nombre", "'"+editorial+"'");
+                        String editorial = read.next().trim();
+                        List buscar = libroDao.consultarLibros("editorial.nombre", "'" + editorial + "'");
+                        if (buscar.get(0).equals(true)) {
+                            libroEncontrado(buscar);
+                        }
                     }
                     case "0" -> {
                         System.out.println("""
@@ -209,17 +264,63 @@ public class LibroService {
                                            ========================================
                                            """);
                     }
-                    default -> throw new Exception("""
+                    default ->
+                        throw new Exception("""
                                            ========================================
                                                     Ingrese una opcion valida
                                            ========================================
                                            """);
                 }
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         } while (!"0".equals(selec));
 
     }
 
+    private boolean libroEncontrado(List busqueda) {
+        System.out.println("""
+                               ========================================
+                                            LIBRO ENCONTRADO
+                               ========================================
+                               """);
+        List<Libro> libros = (List) busqueda.get(1);
+        System.out.println(libros.get(0));
+        System.out.println("""
+                               ========================================
+                                    Desea atualizar datos del libro
+                               ========================================
+                               """);
+        System.out.print("Y/N >> ");
+        boolean selec = read.next().trim().equalsIgnoreCase("Y");
+        if (selec) {
+            actualizarLibro(libros.get(0));
+        }
+        return true;
+    }
+
+    public void darBaja(){
+        System.out.println("""
+                           ========================================
+                                            DAR BAJA
+                           ========================================
+                           """);
+        System.out.print("ISBN >> ");
+        try {
+            String isbn = read.next().trim();
+            List buscar = libroDao.consultarLibros("isbn", isbn);
+            if (buscar.get(0).equals(true)) {
+                List<Libro> libros = (List) buscar.get(1);
+                Libro libro = libros.get(0);
+                if (libro.getAlta()) {
+                    libroDao.switchAlta(libro, Boolean.FALSE);
+                    System.out.println("Libro: " + libro.getTitulo() + " Dado de Baja");
+                } else {
+                    System.out.println("No se encontro libro");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

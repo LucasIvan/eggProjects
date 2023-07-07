@@ -5,10 +5,14 @@ import libreriajpa.entities.Editorial;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  */
 public class EditorialDAO extends DAO {
-
+    
+    public void crearEditorial(Editorial editorial){
+        super.crear(editorial);
+    }
+    
     public Editorial buscarEditorial(String nombre) {
         List<Editorial> editoriales = super.consulta(Editorial.class, "nombre", "'"+nombre+"'");
         if (!editoriales.isEmpty()) {

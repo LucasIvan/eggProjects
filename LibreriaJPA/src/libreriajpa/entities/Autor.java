@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author lucas
+ * @author LUCAS MOLINA
  */
 @Entity
 public class Autor implements Serializable {
