@@ -59,7 +59,6 @@ public abstract class DAO {
                 COMMIT;
             
                 **Sin rollback igual anda */
-             
             throw ex;
         } finally {
             desconectarBase();

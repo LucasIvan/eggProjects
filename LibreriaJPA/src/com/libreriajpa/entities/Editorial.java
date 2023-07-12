@@ -1,31 +1,33 @@
-package libreriajpa.entities;
+package com.libreriajpa.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author LUCAS MOLINA
  */
 @Entity
-public class Autor implements Serializable {
+public class Editorial implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "secuencia", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="secuecia")
     private Integer id;
     private String nombre;
     private Boolean alta;
 
-    public Autor() {
+    public Editorial() {
     }
 
-    public Autor(String nombre, Boolean alta) {
+    public Editorial(String nombre) {
         this.nombre = nombre;
-        this.alta = alta;
+        this.alta = true;
     }
 
     public static long getSerialVersionUID() {
@@ -42,10 +44,6 @@ public class Autor implements Serializable {
 
     public Boolean getAlta() {
         return alta;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public void setNombre(String nombre) {

@@ -1,4 +1,4 @@
-package libreriajpa.persistence;
+package com.libreriajpa.controller;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,32 +12,34 @@ import java.util.List;
  * @author LUCAS MOLINA
  * @param <T>
  */
-public abstract class DAO<T> {
+public abstract class JpaController<T> {
 
     protected EntityManagerFactory emf = Persistence.createEntityManagerFactory("LibreriaPU");
     protected EntityManager em = emf.createEntityManager();
 
-    private void conectar() {
+    private void conectar() throws Exception {
         try {
             if (!em.isOpen()) {
                 em = emf.createEntityManager();
             }
         } catch (Exception e) {
-            System.out.println("EXCEPCION AL INTENTAR CONECTAR");
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+            throw new Exception("EXCEPCION AL INTENTAR CONECTAR");
         }
     }
 
-    private void desconectar() {
+    private void desconectar() throws Exception {
         try {
-            em.close();
+            if (em.isOpen()) {
+                em.close();
+            }
         } catch (Exception e) {
-            System.out.println("EXCEPCION AL INTENTAR DESCONECTAR");
-            System.out.println(e.getMessage());
+            e.printStackTrace();
+            throw new Exception("EXCEPCION AL INTENTAR DESCONECTAR");
         }
     }
 
-    protected void crear(T entity) {
+    protected void crear(T entity) throws Exception {
         conectar();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -48,15 +50,14 @@ public abstract class DAO<T> {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            System.out.println("EXCEPCION AL INTENTAR PERSISTIR ENTIDAD");
             e.printStackTrace();
-            System.out.println(e.getMessage());
+            throw new Exception("EXCEPCION AL INTENTAR PERSISTIR ENTIDAD");
         } finally {
             desconectar();
         }
     }
 
-    protected void actualizar(T entity) {
+    protected void actualizar(T entity) throws Exception {
         conectar();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -67,40 +68,38 @@ public abstract class DAO<T> {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            System.out.println("EXCEPCION AL INTENTAR ACTUALIZAR ENTIDAD");
             e.printStackTrace();
-            System.out.println(e.getMessage());
+            throw new Exception("EXCEPCION AL INTENTAR ACTUALIZAR ENTIDAD");
         } finally {
             desconectar();
         }
     }
 
-    protected List<T> listarTabla(Class<T> entityClass) {
+    protected List<T> listarTabla(Class<T> entityClass) throws Exception {
         conectar();
         List<T> entities = null;
         try {
             entities = em.createQuery("SELECT e FROM " + entityClass.getSimpleName() + " e", entityClass).getResultList();
         } catch (Exception e) {
-            System.out.println("EXCEPCION AL CONSULTAR ENTIDAD");
             e.printStackTrace();
+            throw new Exception("EXCEPCION AL CONSULTAR ENTIDAD");
         }
         return entities;
     }
 
-    protected T buscarPorId(Class<T> entityClass, long id) {
+    protected T buscarPorId(Class<T> entityClass, long id) throws Exception {
         conectar();
         T entity = null;
         try {
             entity = em.find(entityClass, id);
         } catch (Exception e) {
-            System.out.println("EXCEPCION AL CONSULTAR LLAVE PRIMARIA");
             e.printStackTrace();
-            System.out.println(e.getMessage());
+            throw new Exception("EXCEPCION AL CONSULTAR LLAVE PRIMARIA");
         }
         return entity;
     }
 
-    protected List<T> consulta(Class<T> entityClass, String atributo, String valor) {
+    protected List<T> consulta(Class<T> entityClass, String atributo, String valor) throws Exception {
         conectar();
         List<T> entities = null;
         try {
@@ -108,12 +107,13 @@ public abstract class DAO<T> {
             TypedQuery<T> query = em.createQuery(jpql, entityClass);
             entities = query.getResultList();
         } catch (Exception e) {
-            System.out.println("EXCEPCION AL CONSULTAR ATRIBUTO");
+            e.printStackTrace();
+            throw new Exception("EXCEPCION AL CONSULTAR ATRIBUTO");
         }
         return entities;
     }
 
-    protected void eliminar(Class<T> entityClass, long id) {
+    protected void eliminar(Class<T> entityClass, long id) throws Exception {
         conectar();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -126,9 +126,8 @@ public abstract class DAO<T> {
             if (transaction.isActive()) {
                 transaction.rollback();
             }
-            System.out.println("EXCEPCION AL INTENTAR ELIMINAR ENTIDAD");
             e.printStackTrace();
-            System.out.println(e.getMessage());
+            throw new Exception("EXCEPCION AL INTENTAR ELIMINAR ENTIDAD");
         } finally {
             desconectar();
         }

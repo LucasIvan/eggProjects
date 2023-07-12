@@ -1,4 +1,4 @@
-package libreriajpa.entities;
+package com.libreriajpa.entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
