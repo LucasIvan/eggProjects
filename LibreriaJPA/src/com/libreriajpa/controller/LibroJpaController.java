@@ -18,15 +18,9 @@ public class LibroJpaController extends JpaController {
         super.actualizar(libro);
     }
     
-    public List consultarLibros(String atributo, String valor) throws Exception {
+    public List<Libro> consultarLibros(String atributo, String valor) throws Exception {
         List<Libro> libros = super.consulta(Libro.class, atributo, valor);
-        List retorno;
-        if (!libros.isEmpty()) {
-            retorno = Arrays.asList(Boolean.TRUE, libros);
-            return retorno;
-        }
-        retorno = Arrays.asList(Boolean.FALSE, libros);
-        return retorno;
+        return libros;
     }
     
     public void switchAlta(Libro libro, Boolean alta) throws Exception{

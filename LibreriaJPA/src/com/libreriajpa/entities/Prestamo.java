@@ -84,6 +84,10 @@ public class Prestamo implements Serializable {
         this.cliente = cliente;
     }
 
+    public void setDevuelto(Boolean devuelto) {
+        this.devuelto = devuelto;
+    }
+
     @Override
     public String toString() {
         return """

@@ -4,6 +4,7 @@ import com.libreriajpa.services.LibroService;
 import com.libreriajpa.services.EditorialService;
 import com.libreriajpa.services.AutorService;
 import com.libreriajpa.services.ClienteService;
+import com.libreriajpa.services.PrestamoService;
 import java.util.Scanner;
 
 /**
@@ -15,6 +16,7 @@ public class Libreria {
     private static final Scanner read = new Scanner(System.in).useDelimiter("\n");
     private static final LibroService ls = new LibroService();
     private static final ClienteService cs = new ClienteService();
+    private static final PrestamoService ps = new PrestamoService();
 
     /**
      * @param args
@@ -30,8 +32,8 @@ public class Libreria {
             System.out.println("""
                            ========================================
                            ================= MENU =================
-                                  **  1 - Prestar Libro/s **
-                                  **  2 - Devolucion de Libro/s **
+                                    1 - Prestar Libro/s
+                                    2 - Devolucion de Libro/s(FALTA)
                                     3 - Ingresar Libro
                                     4 - Buscar Registro
                                     5 - Nuevo Cliente
@@ -42,7 +44,7 @@ public class Libreria {
                 selec = read.next().trim();
                 switch (selec) {
                     case "1" -> {
-
+                        ps.prestarLibro();
                     }
                     case "2" -> {
 

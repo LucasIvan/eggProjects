@@ -92,8 +92,8 @@ public class Cliente implements Serializable {
                                DETALLE
                ========================================
                
-                       ID:   \t""" + id
-                + "\n\tDocumento: \t\t" + documento
+                       ID:   \t\t""" + id
+                + "\n\tDocumento: \t" + documento
                 + "\n\tNombre:  \t" + nombre
                 + "\n\tApellido:   \t" + apellido
                 + "\n\tTelefono:   \t" + telefono

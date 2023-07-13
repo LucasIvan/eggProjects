@@ -27,8 +27,8 @@ public class LibroService {
                            """);
             System.out.print("ISBN >> ");
             String isbn = read.next().trim();
-            List buscarLibro = libroJpa.consultarLibros("isbn", isbn);
-            if (buscarLibro.get(0).equals(true)) {
+            List<Libro> buscarLibro = libroJpa.consultarLibros("isbn", isbn);
+            if (!buscarLibro.isEmpty()) {
                 libroEncontrado(buscarLibro);
             } else {
                 crearNuevoLibro(isbn);
@@ -39,13 +39,12 @@ public class LibroService {
         }
     }
     
-    private boolean libroEncontrado(List busqueda) {
+    private boolean libroEncontrado(List<Libro> libros) {
         System.out.println("""
                                ========================================
                                             LIBRO ENCONTRADO
                                ========================================
                                """);
-        List<Libro> libros = (List) busqueda.get(1);
         System.out.println(libros.get(0));
         System.out.println("""
                                ========================================
@@ -252,7 +251,7 @@ public class LibroService {
                         System.out.print("ISBN >> ");
                         String isbn = read.next().trim();
                         List buscar = libroJpa.consultarLibros("isbn", "'" + isbn + "'");
-                        if (buscar.get(0).equals(true)) {
+                        if (!buscar.isEmpty()) {
                             libroEncontrado(buscar);
                         }
                     }
@@ -260,7 +259,7 @@ public class LibroService {
                         System.out.print("Titulo >> ");
                         String titulo = read.next().trim();
                         List buscar = libroJpa.consultarLibros("titulo", "'" + titulo + "'");
-                        if (buscar.get(0).equals(true)) {
+                        if (!buscar.isEmpty()) {
                             libroEncontrado(buscar);
                         }
                     }
@@ -268,7 +267,7 @@ public class LibroService {
                         System.out.print("Autor >> ");
                         String autor = read.next().trim();
                         List buscar = libroJpa.consultarLibros("autor.nombre", "'" + autor + "'");
-                        if (buscar.get(0).equals(true)) {
+                        if (!buscar.isEmpty()) {
                             libroEncontrado(buscar);
                         }
                     }
@@ -276,7 +275,7 @@ public class LibroService {
                         System.out.print("Editorial >> ");
                         String editorial = read.next().trim();
                         List buscar = libroJpa.consultarLibros("editorial.nombre", "'" + editorial + "'");
-                        if (buscar.get(0).equals(true)) {
+                        if (!buscar.isEmpty()) {
                             libroEncontrado(buscar);
                         }
                     }
@@ -310,10 +309,9 @@ public class LibroService {
                            """);
             System.out.print("ISBN >> ");
             String isbn = read.next().trim();
-            List buscar = libroJpa.consultarLibros("isbn", isbn);
-            if (buscar.get(0).equals(true)) {
-                List<Libro> libros = (List) buscar.get(1);
-                Libro libro = libros.get(0);
+            List<Libro> buscar = libroJpa.consultarLibros("isbn", isbn);
+            if (!buscar.isEmpty()) {
+                Libro libro = buscar.get(0);
                 if (libro.getAlta()) {
                     libroJpa.switchAlta(libro, Boolean.FALSE);
                     System.out.println("Libro: " + libro.getTitulo() + " Dado de Baja");

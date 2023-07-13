@@ -13,7 +13,7 @@ public class ClienteService {
     private final ClienteJpaController clienteJpa = new ClienteJpaController();
     private final Scanner read = new Scanner(System.in).useDelimiter("\n");
 
-    public void ingresarCliente() {
+    public Cliente ingresarCliente() {
         try {
             System.out.println("""
                                ========================================
@@ -25,18 +25,21 @@ public class ClienteService {
             Cliente clienteBusqueda = clienteJpa.buscarCliente(documento);
             if (clienteBusqueda != null) {
                 clienteEncontrado(clienteBusqueda);
+                return clienteBusqueda;
             } else {
-                crearCliente(documento);
+                Cliente cliente = crearCliente(documento);
+                return cliente;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     private void clienteEncontrado(Cliente cliente) {
         System.out.println("""
                                ========================================
-                                           CLIENTE EXISTENTE
+                                           CLIENTE ECONTRADO
                                ========================================
                                """);
         System.out.println(cliente);
@@ -52,7 +55,7 @@ public class ClienteService {
         }
     }
 
-    private void crearCliente(String documento) {
+    private Cliente crearCliente(String documento) {
         try {
             System.out.println("""
                                ========================================
@@ -90,6 +93,7 @@ public class ClienteService {
                                           REGISTRO COMPLETADO
                                ========================================
                                """);
+                return cliente;
             } else {
                 System.out.println("""
                                ========================================
@@ -101,6 +105,7 @@ public class ClienteService {
             e.printStackTrace();
             System.out.println("EXCEPCION AL INTENTAR CREAR CLIENTE");
         }
+        return null;
     }
 
     private void actualizarCliente(Cliente cliente) {
@@ -131,14 +136,17 @@ public class ClienteService {
                                            """);
                         String selecAlta = read.next().toUpperCase().trim();
                         switch (selecAlta) {
-                            case "A" -> clienteJpa.switchAlta(cliente, Boolean.TRUE);
-                            case "B" -> clienteJpa.switchAlta(cliente, Boolean.FALSE);
-                            default -> System.out.println("""
+                            case "A" ->
+                                clienteJpa.switchAlta(cliente, Boolean.TRUE);
+                            case "B" ->
+                                clienteJpa.switchAlta(cliente, Boolean.FALSE);
+                            default ->
+                                System.out.println("""
                                            ========================================
                                                         Opcion inválida
                                            ========================================
                                            """);
-                            }
+                        }
                     }
                     case "2" -> {
                         System.out.print("Ingrese Nuevo Nombre >> ");
@@ -215,6 +223,7 @@ public class ClienteService {
             String documento = read.next().trim();
             Cliente clienteBusqueda = clienteJpa.buscarCliente(documento);
             if (clienteBusqueda != null) {
+                System.out.println(clienteBusqueda);
                 submenuCliente(clienteBusqueda);
             } else {
                 System.out.println("""
@@ -244,6 +253,7 @@ public class ClienteService {
                            ======================================== 
                                1 - Editar registro
                                2 - Listar Prestamos del cliente
+                               0 - Salir
                            ========================================
                            """);
             System.out.print(">> ");
@@ -254,6 +264,9 @@ public class ClienteService {
                 }
                 case "2" -> {
                     //traer prestamos por cliente
+                }
+                case "0" -> {
+                    
                 }
                 default ->
                     throw new Exception("""

@@ -79,7 +79,8 @@ public abstract class JpaController<T> {
         conectar();
         List<T> entities = null;
         try {
-            entities = em.createQuery("SELECT e FROM " + entityClass.getSimpleName() + " e", entityClass).getResultList();
+            String jpql = String.format("SELECT e FROM %s e WHERE e", entityClass.getSimpleName());
+            entities = em.createQuery(jpql, entityClass).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception("EXCEPCION AL CONSULTAR ENTIDAD");
@@ -99,7 +100,7 @@ public abstract class JpaController<T> {
         return entity;
     }
 
-    protected List<T> consulta(Class<T> entityClass, String atributo, String valor) throws Exception {
+     protected List<T> consulta(Class<T> entityClass, String atributo, String valor) throws Exception {
         conectar();
         List<T> entities = null;
         try {
