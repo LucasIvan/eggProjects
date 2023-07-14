@@ -16,8 +16,14 @@ public class PrestamoJpaController extends JpaController{
         super.actualizar(prestamo);
     }
     
-    public List<Prestamo> consultarPrestamosCliente(String documento) throws Exception {
-        List<Prestamo> prestamos = super.consulta(Prestamo.class, "cliente.getDocumento", documento);
+    public void consultarPrestamosCliente(String documento) throws Exception {
+        List<Prestamo> prestamos = super.consulta(Prestamo.class, "cliente.documento", documento.trim());
+        prestamos.forEach(prestamo -> System.out.println(prestamo));
+    }
+    
+    public List<Prestamo> buscarPrestamo(String isbn, String documento) throws Exception{
+        String jpql = documento+" AND e.libro.isbn = "+isbn;
+        List<Prestamo> prestamos = super.consulta(Prestamo.class, "cliente.documento", jpql);
         return prestamos;
     }
     

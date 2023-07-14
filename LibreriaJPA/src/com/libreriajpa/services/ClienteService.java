@@ -1,6 +1,7 @@
 package com.libreriajpa.services;
 
 import com.libreriajpa.controller.ClienteJpaController;
+import com.libreriajpa.controller.PrestamoJpaController;
 import com.libreriajpa.entities.Cliente;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ import java.util.Scanner;
 public class ClienteService {
 
     private final ClienteJpaController clienteJpa = new ClienteJpaController();
+    private final PrestamoJpaController prestamoJpa = new PrestamoJpaController();
     private final Scanner read = new Scanner(System.in).useDelimiter("\n");
 
     public Cliente ingresarCliente() {
@@ -263,7 +265,7 @@ public class ClienteService {
                     actualizarCliente(cliente);
                 }
                 case "2" -> {
-                    //traer prestamos por cliente
+                    prestamoJpa.consultarPrestamosCliente(""+cliente.getDocumento());
                 }
                 case "0" -> {
                     

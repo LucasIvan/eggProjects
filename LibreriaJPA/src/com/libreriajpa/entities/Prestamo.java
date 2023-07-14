@@ -90,18 +90,8 @@ public class Prestamo implements Serializable {
 
     @Override
     public String toString() {
-        return """
-               
-               ======================================== 
-                               DETALLE
-               ========================================
-               
-                       ID: \t\t\t""" + id
-                + "\n\tFecha de Prestamo:\t" + fechaPrestamo
-                + "\n\tFecha de Devolucion:\t" + fechaDevolucion
-                + "\n\tLibro:  \t\t\t" + libro
-                + "\n\tCliente:  \t\t\t" + cliente
-                + "\n\tDevuelto:  \t\t\t" + devuelto
-                + "\n\n========================================\t\t";
+        return "Prestamo{ libro: " + libro.getTitulo() + ", cliente:" + cliente.getNombre() + ", devuelto: " + devuelto + ", fechaPrestamo: " + fechaPrestamo + ", fechaDevolucion:" + fechaDevolucion +'}';
     }
+
+    
 }

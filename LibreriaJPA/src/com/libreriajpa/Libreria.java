@@ -33,7 +33,7 @@ public class Libreria {
                            ========================================
                            ================= MENU =================
                                     1 - Prestar Libro/s
-                                    2 - Devolucion de Libro/s(FALTA)
+                                    2 - Devolucion de Libro/s
                                     3 - Ingresar Libro
                                     4 - Buscar Registro
                                     5 - Nuevo Cliente
@@ -47,7 +47,7 @@ public class Libreria {
                         ps.prestarLibro();
                     }
                     case "2" -> {
-
+                        ps.devolucion();
                     }
                     case "3" -> {
                         ls.ingresarLibro();
