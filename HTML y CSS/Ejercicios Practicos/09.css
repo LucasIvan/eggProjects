@@ -1,0 +1,41 @@
+h1{
+    color: rgb(0, 154, 165);
+}
+
+strong, a, tbody th, tfoot th{
+    color: red;
+}
+
+span, table .especial, table strong{
+    color: orange;
+}
+
+#subtitulo, em{
+    color: blue;
+}
+
+.especial{
+    color: purple;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 8px;
+  color: green;
+}
+
+table em, #adicional a{
+    color: green;
+}
+
+#adicional, #adicional span{
+    color: darkgoldenrod;
+}
+
+#adicional #especial{
+    color: rgb(220, 43, 226);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="">
+        <title>Título</title>
+    </head>
+    <body>
+        <h1>Registrar un usuario</h1>
+        <form action="">
+            <label for="nombre">Nombre del usuario</label><br>
+            <input type="text" name="nombre"><br>
+            
+            <label for="contra">Contraseña del usuario</label><br>
+            <input type="text" name="contra"><br>
+            
+            <label for="edad">Edad del usuario</label><br>
+            <input type="text" name="edad"><br>
+            
+            <label for="nacimiento">Fecha de nacimiento del usuario</label><br>
+            <input type="date"  name="nacimiento"><br>
+            
+            <span>Sexo del usuario</span><br>
+            <input type="radio" name="sexo" id="hombre" value="1"><label for="hombre">Hombre</label><br>
+            <input type="radio" name="sexo" id="mujer" value="2"><label for="mujer">Mujer</label><br>
+            <input type="radio" name="sexo" id="no-dice" value="3"><label for="no-dice">Prefiere no decir</label><br>
+
+            <label for="pais">Pais nacimiento del usuario</label><br>
+            <select name="pais" id="">
+                <option value="">Argentina</option>
+                <option value="">Brasil</option>
+                <option value="">Uruguay</option>
+            </select><br>
+
+            <button type="submit">Enviar</button>
+            <button type="reset">Borrar</button>
+        </form>
+    </body>
+</html>
