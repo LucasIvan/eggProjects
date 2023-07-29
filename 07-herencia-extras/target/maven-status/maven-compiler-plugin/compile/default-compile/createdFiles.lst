@@ -1,0 +1,8 @@
+herenciaextras\entities\AlquilerPuerto.class
+herenciaextras\services\BarcoService.class
+herenciaextras\services\AlquilerServicio.class
+herenciaextras\entities\Barco.class
+herenciaextras\HerenciaExtras.class
+herenciaextras\entities\Yate.class
+herenciaextras\services\VeleroService.class
+herenciaextras\entities\Velero.class

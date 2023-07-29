@@ -1,0 +1,10 @@
+claseServicio\entities\Persona.class
+claseServicio\entities\CuentaBancaria.class
+claseServicio\entities\Tiempo.class
+claseServicio\services\PersonaServicio.class
+claseServicio\entities\Fraccion.class
+claseServicio\entities\Cafetera.class
+claseServicio\ClaseDeServicio.class
+claseServicio\services\CafeteraServicio.class
+claseServicio\services\CuentaBancariaServicio.class
+claseServicio\services\FraccionServicio.class
