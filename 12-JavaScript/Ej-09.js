@@ -14,5 +14,5 @@ function espaciarFrase(frase) {
 document.addEventListener("DOMContentLoaded", ()=>{
     frase = prompt("Ingrese una frase");
     let fraseEspaciada = espaciarFrase(frase);
-    document.querySelector("body").innerHTML = `<h1>${fraseEspaciada}</h1>`
+    document.body.innerHTML = `<h1>${fraseEspaciada}</h1>`
 });

@@ -8,5 +8,5 @@ document.addEventListener("DOMContentLoaded",()=>{
     do {
         num += parseInt(prompt("Ingrese un número"));
     } while (num <= limite);
-    document.querySelector("body").innerHTML = `<h1>Limite superado<h1>`
+    document.body.innerHTML = `<h1>Limite superado<h1>`
 });

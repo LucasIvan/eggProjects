@@ -4,10 +4,10 @@ En caso de que el valor ingresado sea 0, se debe mostrar “el número no es par
 document.addEventListener("DOMContentLoaded", ()=>{
     let num = parseInt(prompt("Ingrese un número"));
     if (num == 0) {
-        document.querySelector("body").innerHTML = "EL NUMERO ES CERO"
+        document.body.innerHTML = "EL NUMERO ES CERO"
     } else if (num % 2 == 0) {
-        document.querySelector("body").innerHTML = "EL NUMERO ES PAR"
+        document.body.innerHTML = "EL NUMERO ES PAR"
     } else {
-        document.querySelector("body").innerHTML = "EL NUMERO ES IMPAR"
+        document.body.innerHTML = "EL NUMERO ES IMPAR"
     }
 })

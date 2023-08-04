@@ -28,7 +28,7 @@ function numeros() {
         alert("Las entradas no fueron válidas")
     } else {
         let prom = suma / cant;
-        document.querySelector("body").innerHTML = `
+        document.body.innerHTML = `
         <h3>Resultados</h3>
         <ul>
             <li>Máximo: ${max}</li>
