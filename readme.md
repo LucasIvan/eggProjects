@@ -28,4 +28,4 @@ Este es un repositorio con los ejercicios desarrollados a lo largo de la formaci
 - Ejercicios del curso Programación Web Desde Cero
 
 ## Autor
-- LinkedIn - [Lucas Molina](https://www.linkedin.com/in/lucas-molina-dev/)
+- [Lucas Molina](https://www.linkedin.com/in/lucas-molina-dev/)
