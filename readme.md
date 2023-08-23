@@ -2,6 +2,13 @@
 
 Este es un repositorio con los ejercicios desarrollados a lo largo de la formación para el curso de Full Stack Java de Egg Cooperation en el marco de Argentina Programa 4.0
 
+<div style="display: flex">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" alt="" width="60px">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" alt="" width="60px">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original-wordmark.svg" alt="" width="60px">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" alt="" width="60px">
+</div>
+
 ## Tabla de Contenidos
 
 - Intoducción a Java
@@ -19,14 +26,6 @@ Este es un repositorio con los ejercicios desarrollados a lo largo de la formaci
 #### Contenido Extra
 
 - Ejercicios del curso Programación Web Desde Cero
-
-<div style="display: flex">
-  <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" alt="" width="60px">
-  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" alt="" width="60px">
-  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original-wordmark.svg" alt="" width="60px">
-  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" alt="" width="60px">
-</div>
-
 
 ## Autor
 - LinkedIn - [Lucas Molina](https://www.linkedin.com/in/lucas-molina-dev/)
